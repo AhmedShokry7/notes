@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/ui/widgets/custom_button.dart';
 import 'package:notes/ui/widgets/custom_text_form_field.dart';
 
 class AddNoteBtnSheet extends StatelessWidget {
@@ -7,7 +8,7 @@ class AddNoteBtnSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
       child: Column(
         children: [
           SizedBox(
@@ -18,7 +19,7 @@ class AddNoteBtnSheet extends StatelessWidget {
               radius: BorderRadius.circular(16),
             ),
           ),
-          const SizedBox(height: 24.0),
+          const SizedBox(height: 16.0),
           const Text(
             "Add your Note title and body",
             style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
@@ -27,6 +28,9 @@ class AddNoteBtnSheet extends StatelessWidget {
           const CustomTextFormField(hint: 'Title'),
           const SizedBox(height: 14.0),
           const CustomTextFormField(hint: 'Content', maxlines: 8),
+          const Spacer(),
+          const CustomButton(),
+          const Spacer(),
         ],
       ),
     );
