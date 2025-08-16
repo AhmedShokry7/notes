@@ -8,16 +8,25 @@ class AddNoteBtnSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(32.0),
-      child: const Column(
+      child: Column(
         children: [
-          Text(
+          SizedBox(
+            width: 42.0,
+            child: Divider(
+              thickness: 5,
+              color: Colors.white,
+              radius: BorderRadius.circular(16),
+            ),
+          ),
+          const SizedBox(height: 24.0),
+          const Text(
             "Add your Note title and body",
             style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 24.0),
-          CustomTextFormField(hint: 'Title'),
-          SizedBox(height: 12.0),
-          CustomTextFormField(hint: 'Title'),
+          const SizedBox(height: 24.0),
+          const CustomTextFormField(hint: 'Title'),
+          const SizedBox(height: 14.0),
+          const CustomTextFormField(hint: 'Content', maxlines: 8),
         ],
       ),
     );
