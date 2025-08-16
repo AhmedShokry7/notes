@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notes/ui/widgets/custom_button.dart';
 import 'package:notes/ui/widgets/custom_text_form_field.dart';
 
-class AddNoteBtnSheet extends StatelessWidget {
-  const AddNoteBtnSheet({super.key});
+class AddNoteBtoomSheet extends StatelessWidget {
+  const AddNoteBtoomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class AddNoteBtnSheet extends StatelessWidget {
           const SizedBox(height: 24.0),
           const CustomTextFormField(hint: 'Title'),
           const SizedBox(height: 14.0),
-          const CustomTextFormField(hint: 'Description', maxlines: 8),
+          const CustomTextFormField(hint: 'Description', maxlines: 5),
           const Spacer(),
           const CustomButton(),
           const Spacer(),

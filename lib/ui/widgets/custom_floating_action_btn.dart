@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/ui/widgets/add_note_btn_sheet.dart';
+import 'package:notes/ui/widgets/add_note_bottom_sheet.dart';
 
 class CustomFloatingActionBtn extends StatelessWidget {
   const CustomFloatingActionBtn({super.key});
@@ -16,7 +16,7 @@ class CustomFloatingActionBtn extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => const AddNoteBtnSheet(),
+            builder: (context) => const AddNoteBtoomSheet(),
           );
         },
         child: const Icon(Icons.add),
