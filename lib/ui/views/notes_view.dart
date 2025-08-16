@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:notes/ui/widgets/custom_app_bar.dart';
+import 'package:notes/ui/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: SafeArea(child: Column(children: [CustomAppBar()])),
-      ),
-    );
+    return const Scaffold(body: NotesViewBody());
   }
 }
