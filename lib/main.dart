@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox<NoteModel>("notes_box");
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>("notes_box");
   Bloc.observer = SimpleBlocObserver();
   runApp(const Notes());
 }
@@ -17,19 +17,15 @@ void main() async {
 class Notes extends StatelessWidget {
   const Notes({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AddNoteCubit())],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          // scaffoldBackgroundColor: const Color.fromARGB(255, 51, 51, 51),
-        ),
-        home: const NotesView(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        // scaffoldBackgroundColor: const Color.fromARGB(255, 51, 51, 51),
       ),
+      home: const NotesView(),
     );
   }
 }
