@@ -9,6 +9,28 @@ class AddNoteBtoomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+      child: const _AddNoteForm(),
+    );
+  }
+}
+
+class _AddNoteForm extends StatefulWidget {
+  const _AddNoteForm();
+
+  @override
+  State<_AddNoteForm> createState() => __AddNoteFormState();
+}
+
+class __AddNoteFormState extends State<_AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, descreption;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
       child: Column(
         children: [
           SizedBox(
@@ -25,11 +47,31 @@ class AddNoteBtoomSheet extends StatelessWidget {
             style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24.0),
-          const CustomTextFormField(hint: 'Title'),
+          CustomTextFormField(
+            hint: 'Title',
+            onSaved: (value) {
+              title = value;
+            },
+          ),
           const SizedBox(height: 14.0),
-          const CustomTextFormField(hint: 'Description', maxlines: 5),
+          CustomTextFormField(
+            hint: 'Description',
+            maxlines: 5,
+            onSaved: (value) {
+              descreption = value;
+            },
+          ),
           const Spacer(),
-          const CustomButton(),
+          CustomButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
           const Spacer(),
         ],
       ),
